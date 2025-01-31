@@ -1,3 +1,42 @@
+@font-face {
+  font-family: RegularFont;
+  src: url('../public/fonts/bitpap/BitPap.ttf');
+}
+
+@font-face {
+  font-family: RegularFont2;
+  src: url('../public/fonts/membra/membra.ttf');
+}
+
+* {
+  font-family: RegularFont2;
+}
+
+/* HERO BANNER  */
+/* Make sure the video covers the entire screen */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Ensures video fills the screen */
+  z-index: 10 ; /* Sends video to the background */
+  filter: opacity(0.1);
+}
+
+/* Ensure content appears above the video */
+.App {
+  position: relative;
+  z-index: 1;
+  color: white; /* Adjust text color for visibility */
+  text-align: center;
+  padding-top: 50px; /* Adjust spacing */
+}
+
+
+
+
 .transitioned-element {
   text-align: center;
   font-size: calc(4vw + 1rem);
@@ -7,7 +46,7 @@
 
 .text-container {
   padding-top: 10%;
- 
+
 }
 
 
@@ -30,46 +69,145 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centers the video */
-  min-width: 100%; /* Ensures the video stretches to at least the width of the container */
-  min-height: 100%; /* Ensures the video stretches to at least the height of the container */
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -1; /* Places the video behind the content */
-  object-fit: cover; /* Ensures the video covers the container without distortion */
+  z-index: -1;
+  object-fit: cover;
+  filter: blur(2px);
 }
 
 
 
 /* Google Fonts */
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+/* @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro); */
 
-/* Cursor */
-.cursor{
-    position: relative;
-    width: 24em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 30px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
-}
-/* Animation */
-.typewriter-animation {
+
+
+/* HERO TITLE STYLES  */
+.hero-title {
   color: white;
-  animation: 
-    typewriter 5s steps(50) 1s 1 normal both, 
-    blinkingCursor 500ms steps(50) infinite normal;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 2px;
+  line-height: 33px;
 }
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+
+@media (min-width: 576px){
+  .hero-title{
+    font-size: 30px;
+  }
 }
-@keyframes blinkingCursor{
-  from { border-right-color: rgba(255,255,255,.75); }
-  to { border-right-color: transparent; }
+
+.hero-title::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* HERO TITLE STYLES  */
+
+
+/* HERO BANNER  */
+
+
+
+
+
+/* SKILLS SHOWCASE  */
+
+.skills-container{
+  padding: 50px 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.skill{
+  height: 400px;
+  width: 300px;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+.card{
+  padding-top: 100px;
+  transform-style: preserve-3d;
+  background-image: url('../public/images/cbbg.jpg');
+  background-position: center center;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  border-radius: 10px;
+  perspective: 1000px;
+}
+
+.card:hover{
+  background-position: 80% 20%;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+ 
 }
 
 
+.content-box{
+  height: 100%;
+  /* width: 100%; */
+  background-color: rgba(0, 0, 0, 0.811);
+  filter: blur(0.9);
+  border-radius: 0 0 10px 10px;
+  box-shadow: rgba(0, 115 255 0.925) 0px 20px 50px -25px;
+  transition: all 0.5s ease-in-out;
+  padding: 25px;
+  transform-style: preserve-3d;
+}
+.card-title{
+  color: white;
+  font-size: 25px;
+  font-weight: 900px;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0, 0, 20px);
+  
+}
+.skill-desc{
+  display: flex;
+  justify-content: space-around;
+  perspective: 1000px;
+  align-items: center;
+  gap: 8px;
+
+}
+.card .skill-desc img {
+  width: 80px;
+  height: 80px;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0, 0, 20px);
+}
+
+.card:hover .skill-desc img {
+  transform: translate3d(0, 0, 40px) scale(1.1); 
+}
+
+.card-title:hover{
+  transform: translate3d(0, 0, 50px);
+}
+
+.card-content{
+  padding-top: 15px;
+  font-size: 12px;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0, 0, 20px);
+}
+.card-content:hover{
+  transform: translate3d(0, 0, 50px);
+}
+/* SKILLS SHOWCASE  */

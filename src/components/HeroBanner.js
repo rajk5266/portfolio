@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const HeroBanner = () => {
-  const textRef = useRef(null);
 
-  const originalText =
-    "A Program Architect";
-  const switchToText =
-    "A Software Developer";
+  const titleText = "Hello, I'm Raj Kushwaha -";
+  const [currentText, setCurrentText] = useState("");
+  const [charIndex, setCharIndex] = useState(0);
+  const typingSpeed = 100; // speed
+
+  const textRef = useRef(null);
+  const originalText = "A Program Architect";
+  const switchToText = "A Software Developer";
 
   let newText;
   let initialText;
@@ -92,6 +95,17 @@ const HeroBanner = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (charIndex < titleText.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText((prev) => prev + titleText[charIndex]);
+        setCharIndex((prev) => prev + 1);
+      }, typingSpeed);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [charIndex]);
+
   return (
 
     <div className="parent-hero-container">
@@ -103,7 +117,9 @@ const HeroBanner = () => {
         <div className="text-container">
           <div className="row">
             <div className="col col-12">
-              <p className="cursor typewriter-animation">My name is Raj Kushwaha - </p>
+              <p className="cursor typewriter-animation hero-title">
+                {currentText}
+              </p>
             </div>
             <div className="col col-12">
               <p className="regular-text transitioned-element" ref={textRef}></p>
