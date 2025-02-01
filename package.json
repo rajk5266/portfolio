@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@twistezo/react-text-scramble": "^1.0.6",
     "animated-backgrounds": "^1.1.0",
     "cra-template": "1.2.0",
     "gsap": "^3.12.7",

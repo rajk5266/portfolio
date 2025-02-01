@@ -1,17 +1,37 @@
 @font-face {
-  font-family: RegularFont;
+  font-family: bitpap;
   src: url('../public/fonts/bitpap/BitPap.ttf');
 }
 
 @font-face {
-  font-family: RegularFont2;
+  font-family: membra;
   src: url('../public/fonts/membra/membra.ttf');
 }
 
-* {
-  font-family: RegularFont2;
+.App canvas {
+  filter: blur(2.5px);
 }
 
+* {
+  font-family: membra;
+}
+
+.section-title {
+  color: #00ff00;
+  padding-top: 20px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+@media (max-width: 576px){
+  .section-title{
+    font-size: 17px !important  ;
+  }
+}
+.section-title {
+
+}
 /* HERO BANNER  */
 /* Make sure the video covers the entire screen */
 .bg-video {
@@ -20,8 +40,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover; /* Ensures video fills the screen */
-  z-index: 10 ; /* Sends video to the background */
+  object-fit: cover;
+  /* Ensures video fills the screen */
+  z-index: 10;
+  /* Sends video to the background */
   filter: opacity(0.1);
 }
 
@@ -29,9 +51,10 @@
 .App {
   position: relative;
   z-index: 1;
-  color: white; /* Adjust text color for visibility */
+  color: white;
+  /* Adjust text color for visibility */
   text-align: center;
-  padding-top: 50px; /* Adjust spacing */
+
 }
 
 
@@ -95,8 +118,8 @@
   line-height: 33px;
 }
 
-@media (min-width: 576px){
-  .hero-title{
+@media (min-width: 576px) {
+  .hero-title {
     font-size: 30px;
   }
 }
@@ -123,24 +146,28 @@
 
 /* SKILLS SHOWCASE  */
 
-.skills-container{
+.skills-container {
   padding: 50px 0;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
   flex-wrap: wrap;
 }
-
-.skill{
+@media (max-width: 676px){
+  .skills-container{
+    gap: 0 !important;
+  }
+}
+.skill {
   height: 400px;
   width: 300px;
   padding: 20px;
   perspective: 1000px;
 }
 
-.card{
+.card {
   padding-top: 100px;
   transform-style: preserve-3d;
   background-image: url('../public/images/cbbg.jpg');
@@ -151,14 +178,14 @@
   perspective: 1000px;
 }
 
-.card:hover{
+.card:hover {
   background-position: 80% 20%;
   transform: rotate3d(0.5, 1, 0, 30deg);
- 
+
 }
 
 
-.content-box{
+.content-box {
   height: 100%;
   /* width: 100%; */
   background-color: rgba(0, 0, 0, 0.811);
@@ -169,15 +196,17 @@
   padding: 25px;
   transform-style: preserve-3d;
 }
-.card-title{
+
+.card-title {
   color: white;
   font-size: 25px;
   font-weight: 900px;
   transition: all 0.5s ease-in-out;
   transform: translate3d(0, 0, 20px);
-  
+
 }
-.skill-desc{
+
+.skill-desc {
   display: flex;
   justify-content: space-around;
   perspective: 1000px;
@@ -185,29 +214,223 @@
   gap: 8px;
 
 }
+
 .card .skill-desc img {
   width: 80px;
   height: 80px;
   transition: all 0.5s ease-in-out;
   transform: translate3d(0, 0, 20px);
+  background-color: white;
+  border-radius: 50%;
 }
 
 .card:hover .skill-desc img {
-  transform: translate3d(0, 0, 40px) scale(1.1); 
+  transform: translate3d(0, 0, 40px) scale(1.1);
 }
 
-.card-title:hover{
+.card-title:hover {
   transform: translate3d(0, 0, 50px);
 }
 
-.card-content{
+.card-content {
   padding-top: 15px;
   font-size: 12px;
   color: white;
   transition: all 0.5s ease-in-out;
   transform: translate3d(0, 0, 20px);
 }
-.card-content:hover{
+
+.card-content:hover {
   transform: translate3d(0, 0, 50px);
 }
+
+/* .skills-container .node{
+  filter: hue-rotate(0);
+}
+.skills-container .express{
+  filter: hue-rotate(120deg);
+}
+.skills-container .js{
+  filter: hue-rotate(120deg);
+}
+.skills-container .react{
+  filter: hue-rotate(120deg);
+}
+.skills-container .mongo{
+  filter: hue-rotate(120deg);
+} */
 /* SKILLS SHOWCASE  */
+
+
+
+
+
+/* PROJECTS  */
+
+.projects-section {
+  text-align: center;
+  padding: 10px 0;
+  background: #0d0d0db7;
+  color: #00ffcc;
+}
+
+
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project-card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(0, 255, 204, 0.2);
+  box-shadow: 0px 0px 20px rgba(0, 255, 204, 0.7);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover .project-overlay {
+  transform: translateY(0);
+}
+
+.project-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.project-links a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.project-links a:hover {
+  color: #ffcc00;
+}
+
+/* PROJECTS  */
+
+
+
+
+
+
+
+/* CONTACT FORM  */
+
+.contact-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.296);
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+
+
+}
+
+.form-area {
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+}
+
+@media (min-width: 576px) {
+  .form-area {
+    width: 50%;
+  }
+}
+
+
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* input::placeholder,textarea::placeholder{
+  color: white;
+} */
+input,
+textarea {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+  text-align: center;
+  outline: none;
+  font-family: bitpap;
+  font-size: 20px;
+}
+
+.fingerprint-button {
+  background: none;
+  border: none; 
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.fingerprint-img {
+  width: 80px;
+  transition: all 0.3s ease-in-out;
+  filter: drop-shadow(0 0 10px #00ff00) hue-rotate(103deg);
+  
+}
+.fingerprint-button p{
+  color: #00ff00;
+}
+
+.fingerprint-button:hover .fingerprint-img {
+  filter: drop-shadow(0 0 20px #00ff00);
+  transform: scale(1.1);
+}
+
+.success-message {
+  color: #00ff00;
+  font-size: 20px;
+  margin-top: 20px;
+  font-family: "Courier New", Courier, monospace;
+  animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* CONTACT FORM  */
+
