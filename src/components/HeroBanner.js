@@ -69,7 +69,7 @@ const HeroBanner = () => {
       textRef.current.innerHTML = outputText;
 
       if (completedCharacters === characterQueue.length) {
-  
+
         setTimeout(() => {
           setReverse((prev) => !prev);
         }, 2000);
@@ -103,11 +103,19 @@ const HeroBanner = () => {
     }
   }, [charIndex]);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  
+
   return (
     <div className="parent-hero-container">
       <div className="video-container">
         <video autoPlay loop muted className="background-video">
-          <source src="videos/bg-video.mp4" type="video/mp4" />
+          {/* <source src="videos/bg-video.mp4" type="video/mp4" /> */}
           Your browser does not support the video tag.
         </video>
         <div className="text-container">
@@ -118,8 +126,29 @@ const HeroBanner = () => {
               </p>
             </div>
             <div className="col col-12">
-              
+
               <p className="regular-text transitioned-element" ref={textRef}></p>
+            </div>
+
+            <div className="col col-12 ">
+              <div className="nav-buttons-area">
+                <button class="cybr-btn" onClick={ () => scrollToSection('skills')}>
+                  Tech Stack<span aria-hidden>_</span>
+                  <span aria-hidden class="cybr-btn__glitch"></span>
+                </button>
+
+                <button class="cybr-btn" onClick={ () => scrollToSection('projects')}>
+                  Projects<span aria-hidden>_</span>
+                  <span aria-hidden class="cybr-btn__glitch"></span>
+                </button>
+
+                <button class="cybr-btn" onClick={ () => scrollToSection('contact')}>
+                  Contact<span aria-hidden>_</span>
+                  <span aria-hidden class="cybr-btn__glitch"></span>
+
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
