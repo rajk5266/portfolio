@@ -3,16 +3,36 @@ import React from "react";
 
 const projects = [
     {
+        title: "Weather App",
+        description: "React App",
+        liveLink: "https://weatherapptask-raj-kushwahas-projects.vercel.app/",
+    },
+    {
         title: "Digiigrow",
-        description: "A Digital ",
+        description: "Website",
         liveLink: "https://digiigrow.com",
     },
     {
-        title: "E-Commerce Dashboard",
-        image: "images/project2.png",
-        description: "A fully functional e-commerce admin panel.",
-        liveLink: "https://ecommerce.com",
+        title: "Oroface",
+        description: "Website",
+        liveLink: "https://oroface.in/",
     },
+    {
+        title: "Mahest Interior",
+        description: "Website",
+        liveLink: "https://maheshinteriordesign.com/",
+    },
+    {
+        title: "Amphelio Green",
+        description: "Website",
+        liveLink: "https://www.ampheliogreenenergy.com/",
+    },
+    {
+        title: "Dr Sharif..",
+        description: "Website",
+        liveLink: "https://www.drshariforthopedicarthroscopicsurgeon.com/",
+    },
+
 ]
     
 
