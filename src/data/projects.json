@@ -16,7 +16,7 @@
     "description": "Developed a full stack expense management platform with premium features, leaderboard system, downloadable reports, and secure JWT authentication. Integrated Razorpay payments and AWS S3 for report storage.",
     "tags": ["Node.js", "Express.js", "MySQL", "AWS", "JWT", "Razorpay"],
     "category": "Full Stack",
-    "github": "https://github.com/rajk5266",
+    "github": "https://github.com/rajk5266/Expense-App",
     "live": "https://spendsmart-nkgi.onrender.com",
     "featured": true,
     "year": "2024"
@@ -27,7 +27,7 @@
     "description": "Built a scalable real-time group chat application with multimedia sharing using Socket.IO and Sequelize. Designed optimized backend architecture for efficient message handling and storage.",
     "tags": ["Node.js", "Socket.IO", "Express.js", "PostgreSQL", "Sequelize"],
     "category": "Backend",
-    "github": "https://github.com/rajk5266",
+    "github": "https://github.com/rajk5266/GroupChatApp",
     "live": "https://chatprivate.onrender.com",
     "featured": true,
     "year": "2024"
