@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "WebGuard - Security Scanner Platform",
+    "description": "Built a security scanning platform for detecting WAFs, exposed services, missing security headers, and DNS misconfigurations. Implemented asynchronous scan processing using Redis and BullMQ workers with automated PDF security reporting.",
+    "tags": ["Next.js", "Node.js", "Express.js", "MongoDB", "Redis", "BullMQ", "Security"],
+    "category": "Cybersecurity",
+    "github": "https://github.com/rajk5266",
+    "live": "https://webguard-frontend-inky.vercel.app/",
+    "featured": true,
+    "year": "2025"
+  },
+  {
+    "id": 2,
+    "title": "Expense Tracker Platform",
+    "description": "Developed a full stack expense management platform with premium features, leaderboard system, downloadable reports, and secure JWT authentication. Integrated Razorpay payments and AWS S3 for report storage.",
+    "tags": ["Node.js", "Express.js", "MySQL", "AWS", "JWT", "Razorpay"],
+    "category": "Full Stack",
+    "github": "https://github.com/rajk5266",
+    "live": "https://spendsmart-nkgi.onrender.com",
+    "featured": true,
+    "year": "2024"
+  },
+  {
+    "id": 3,
+    "title": "Real-Time Group Chat Application",
+    "description": "Built a scalable real-time group chat application with multimedia sharing using Socket.IO and Sequelize. Designed optimized backend architecture for efficient message handling and storage.",
+    "tags": ["Node.js", "Socket.IO", "Express.js", "PostgreSQL", "Sequelize"],
+    "category": "Backend",
+    "github": "https://github.com/rajk5266",
+    "live": "https://chatprivate.onrender.com",
+    "featured": true,
+    "year": "2024"
+  },
+  {
+    "id": 4,
+    "title": "AI Mental Health Assistant",
+    "description": "Developed an AI-powered mental health and counselling assistant using OpenAI API and sentiment analysis to provide conversational emotional support and interaction.",
+    "tags": ["Node.js", "OpenAI API", "Sentiment Analysis", "AI"],
+    "category": "AI",
+    "github": "https://github.com/rajk5266/PsychInsight.git",
+    "live": null,
+    "featured": true,
+    "year": "2024"
+  },
+  {
+    "id": 5,
+    "title": "WeatherChart - Weather Visualization App",
+    "description": "Built a responsive weather dashboard displaying current weather and 5-day forecasts using OpenWeather API. Visualized weather analytics dynamically using Chart.js.",
+    "tags": ["React", "Chart.js", "Bootstrap", "Axios", "Weather API"],
+    "category": "Frontend",
+    "github": "https://github.com/rajk5266/digitalcube_task.git",
+    "live": "https://weatherapptask-raj-kushwahas-projects.vercel.app/",
+    "featured": false,
+    "year": "2023"
+  }
+]

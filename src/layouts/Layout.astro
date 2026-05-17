@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Raj Kushwaha — Full Stack Developer",
+  description = "Full Stack Developer specializing in secure backend architecture, Node.js, React, and e-commerce platforms. Based in Thane, Maharashtra.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Raj Kushwaha" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#00FF88" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <slot />
+    <script>
+      // ── NAV SCROLL STATE ──
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        nav?.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      // ── HAMBURGER ──
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      hamburger?.addEventListener('click', () => {
+        navLinks?.classList.toggle('open');
+      });
+
+      // ── INTERSECTION OBSERVER FOR FADE-UP ──
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      // ── PROJECT FILTER ──
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+          projectCards.forEach(card => {
+            const cat = (card as HTMLElement).dataset.category || '';
+            const show = filter === 'all' || cat === filter;
+            (card as HTMLElement).style.display = show ? '' : 'none';
+          });
+        });
+      });
+
+      // ── CONTACT FORM ──
+      const form = document.querySelector('.contact-form');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.form-submit') as HTMLButtonElement;
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--green)';
+        setTimeout(() => {
+          btn.textContent = 'Send Message';
+          btn.style.background = '';
+          btn.style.color = '';
+          (form as HTMLFormElement).reset();
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
